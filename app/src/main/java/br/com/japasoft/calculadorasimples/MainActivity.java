@@ -2,6 +2,7 @@ package br.com.japasoft.calculadorasimples;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         txtResultant.setText(String.valueOf(res));
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void operacao(View v) {
         switch (v.getId()) {
             case R.id.btnSomar:
@@ -74,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnDividir:
                 dividir();
                 break;
+            default:
+                throw new IllegalStateException("Valor invalido: " + v.getId());
         }
     }
-
 
 }
