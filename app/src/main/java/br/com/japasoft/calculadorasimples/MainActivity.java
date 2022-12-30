@@ -2,12 +2,13 @@ package br.com.japasoft.calculadorasimples;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,48 +22,75 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-/*        Button btnSomar = findViewById(R.id.btnSomar);
-        Button btnSubtracao = findViewById(R.id.btnSubtrair);
-        Button btnMultiplicar = findViewById(R.id.btnMultiplicar);
-        Button btnDividir = findViewById(R.id.btnDividir);
-
- */
-
         edtValor1 = findViewById(R.id.edtValor1);
         edtValor2 = findViewById(R.id.edtValor2);
         txtResultant = findViewById(R.id.txtResultado);
+
+
     }
 
     public void somar() {
-        num1 = Double.parseDouble(edtValor1.getText().toString());
-        num2 = Double.parseDouble(edtValor2.getText().toString());
-        res = num1 + num2;
-        txtResultant.setText(String.valueOf(res));
+        try {
+            num1 = Double.parseDouble(edtValor1.getText().toString());
+            num2 = Double.parseDouble(edtValor2.getText().toString());
+            res = num1 + num2;
+            txtResultant.setText(String.valueOf(res));
+        } catch (Exception e) {
+            AlertDialog.Builder cxmsg;
+            cxmsg = new AlertDialog.Builder(this);
+            cxmsg.setMessage("Preencha os valores");
+            cxmsg.setNeutralButton("OK", null);
+            cxmsg.show();
+        }
+
     }
 
     public void subtrair() {
-        num1 = Double.parseDouble(edtValor1.getText().toString());
-        num2 = Double.parseDouble(edtValor2.getText().toString());
-        res = num1 - num2;
-        txtResultant.setText(String.valueOf(res));
+        try {
+            num1 = Double.parseDouble(edtValor1.getText().toString());
+            num2 = Double.parseDouble(edtValor2.getText().toString());
+            res = num1 - num2;
+            txtResultant.setText(String.valueOf(res));
+        } catch (Exception e) {
+            AlertDialog.Builder cxmsg;
+            cxmsg = new AlertDialog.Builder(this);
+            cxmsg.setMessage("Preencha os valores");
+            cxmsg.setNeutralButton("OK", null);
+            cxmsg.show();
+        }
     }
 
     public void multiplicar() {
-        num1 = Double.parseDouble(edtValor1.getText().toString());
-        num2 = Double.parseDouble(edtValor2.getText().toString());
-        res = num1 * num2;
-        txtResultant.setText(String.valueOf(res));
+        try {
+            num1 = Double.parseDouble(edtValor1.getText().toString());
+            num2 = Double.parseDouble(edtValor2.getText().toString());
+            res = num1 * num2;
+            txtResultant.setText(String.valueOf(res));
+        } catch (Exception e) {
+            AlertDialog.Builder cxmsg;
+            cxmsg = new AlertDialog.Builder(this);
+            cxmsg.setMessage("Preencha os valores");
+            cxmsg.setNeutralButton("OK", null);
+            cxmsg.show();
+        }
     }
 
     public void dividir() {
-        num1 = Double.parseDouble(edtValor1.getText().toString());
-        num2 = Double.parseDouble(edtValor2.getText().toString());
-        res = num1 / num2;
-        txtResultant.setText(String.valueOf(res));
+        try {
+            num1 = Double.parseDouble(edtValor1.getText().toString());
+            num2 = Double.parseDouble(edtValor2.getText().toString());
+            res = num1 / num2;
+            txtResultant.setText(String.valueOf(res));
+        } catch (Exception e) {
+            AlertDialog.Builder cxmsg;
+            cxmsg = new AlertDialog.Builder(this);
+            cxmsg.setMessage("Preencha os valores");
+            cxmsg.setNeutralButton("OK", null);
+            cxmsg.show();
+        }
     }
 
-    @SuppressLint("NonConstantResourceId")
-    public void operacao(View v) {
+    public void opera(View v) {
         switch (v.getId()) {
             case R.id.btnSomar:
                 somar();
@@ -77,8 +105,12 @@ public class MainActivity extends AppCompatActivity {
                 dividir();
                 break;
             default:
-                throw new IllegalStateException("Valor invalido: " + v.getId());
+                throw new IllegalStateException("Valor invalid: " + v.getId());
         }
+
+
+        //   Toast.makeText(this, "Olha que bacana. Vários Toast", Toast.LENGTH_SHORT).show();
+        //   Toast.makeText(this, "Valor da locação calculado", Toast.LENGTH_LONG).show();
     }
 
 }

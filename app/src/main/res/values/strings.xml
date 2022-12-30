@@ -9,4 +9,5 @@
     <string name="valor2">Digite o segundo valor</string>
     <string name="calcular">CALCULAR</string>
     <string name="_0">0</string>
+    <string name="operacao">operacao</string>
 </resources>
