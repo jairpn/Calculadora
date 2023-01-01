@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Double num1, num2, res;
+    Double num1;
+    Double num2;
+    Double res;
     TextView txtResultant;
     EditText edtValor1;
     EditText edtValor2;
@@ -25,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         edtValor1 = findViewById(R.id.edtValor1);
         edtValor2 = findViewById(R.id.edtValor2);
         txtResultant = findViewById(R.id.txtResultado);
-
-
     }
 
     public void somar() {
