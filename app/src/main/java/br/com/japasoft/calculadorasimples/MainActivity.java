@@ -1,13 +1,15 @@
 package br.com.japasoft.calculadorasimples;
 
+import static br.com.japasoft.calculadorasimples.R.id.btnSomar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.app.AlertDialog;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -90,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void opera(View v) {
         switch (v.getId()) {
-            case R.id.btnSomar:
+            case btnSomar:
                 somar();
                 break;
             case R.id.btnSubtrair:
